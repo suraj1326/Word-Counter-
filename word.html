@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Counter</title>
+    <!-- Including Bootstrap CSS for styling -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-..." crossorigin="anonymous">
+    <!-- Internal CSS -->
+    <style>
+        body {
+            background-color: #89b2bd;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            background-color: #ce63b7;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            color: #1d2125;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        .btn-primary {
+            background-color: #f31a50cc;
+            border-color: #00ffea;
+            display: block;
+            width: 100%;
+            font-size: 1.1em;
+            padding: 10px;
+            margin-top: 20px;
+        }
+
+        .result {
+            margin-top: 20px;
+            font-size: 1.2em;
+            text-align: center;
+        }
+
+        .alert {
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        .alert-success {
+            background-color: #d4edda;
+            border-color: #c3e6cb;
+            color: #155724;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Word Counter</h2>
+    <!-- Form to input text -->
+    <form id="wordCounterForm">
+        <div class="form-group">
+            <label for="textInput">Enter your text:</label>
+            <textarea class="form-control" id="textInput" rows="6" placeholder="Type your text here..."></textarea>
+        </div>
+        <!-- Button to count words -->
+        <button type="button" class="btn btn-primary" onclick="countWords()">Count Words</button>
+    </form>
+    <!-- Div to display the result -->
+    <div class="result alert alert-success" id="result" style="display:none;"></div>
+</div>
+
+<script>
+    // Function to count words in the input text
+    function countWords() {
+        // Get the input text
+        const text = document.getElementById('textInput').value.trim();
+        const resultDiv = document.getElementById('result');
+
+        // Count the number of words
+        let wordCount = 0;
+        if (text.length > 0) {
+            wordCount = text.split(/\s+/).length;
+        }
+
+        // Display the word count
+        resultDiv.textContent = `Word count: ${wordCount}`;
+        resultDiv.style.display = 'block';
+    }
+</script>
+
+</body>
+</html>
